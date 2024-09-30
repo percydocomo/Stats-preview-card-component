@@ -1,0 +1,230 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+/* ROOT */
+
+:root {
+  --primary-very-dark-blue-main-background: hsl(233, 47%, 7%);
+  --primary-dark-desaturated-blue-card-background: hsl(244, 38%, 16%);
+  --primary-soft-violet-accent: hsl(277, 64%, 61%);
+
+  --neutral-white-main-heading-stats: hsl(0, 0%, 100%);
+  --neutral-slightly-transparent-white-main-paragraph: hsla(0, 0%, 100%, 0.75);
+  --neutral-slightly-transparent-white-stat-headings: hsla(0, 0%, 100%, 0.6);
+
+  --ff-inter: "Inter", sans-serif;
+  --ff-lexend-deca: "Lexend Deca", sans-serif;
+
+  --font-weight-400: 400;
+  --font-weight-700: 700;
+}
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GENERIC STYLES */
+
+body {
+    font-size: 15px;
+    font-family: var(--ff-inter);
+    background-color: var(--primary-very-dark-blue-main-background);
+}
+
+h1, h2 {
+    color: var(--neutral-white-main-heading-stats);
+}
+
+p {
+    color: var(--neutral-slightly-transparent-white-stat-headings);
+}
+
+span {
+    color: var(--primary-soft-violet-accent);
+}
+
+.card-container {
+    width: 25em;
+    margin: auto;
+    padding: 1.6em;
+    background-color: var(--primary-dark-desaturated-blue-card-background);
+}
+ /* IMAGE CONTAINER DIV */
+
+.image-container {
+    background-color: rgb(150, 19, 232);
+    /* picked a darker purple color */
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    margin-top: 4.2em;   
+}
+
+.image-desktop {
+    display: none;
+}
+
+img {
+    width: 100%;
+    opacity: 0.5;
+    background-position: cover;
+    display: block;
+}
+
+/* COMPANY INFO DIV */
+
+.company-info {
+    padding: 2em;
+}
+
+.company-info h1 {
+    font-size: 1.8em;
+    text-align: center;
+    line-height: 1.18em;
+    margin-top: 0.42em;
+}
+
+.company-info p {
+    text-align: center;
+    font-size: 1.015em;
+    font-weight: 500;
+    line-height: 1.653em;
+    margin-top: 1.06em;
+}
+
+/* STATS INFO DIV */
+
+.stats-info {
+    text-align: center;
+    margin-top: 0.61em;
+}
+
+.stats-inner-flex {
+    margin-bottom: 2em;
+}
+
+.counter {
+    font-size: 1.6em;
+    margin-bottom: 0.25em;
+}
+
+.category {
+    text-transform: uppercase;
+    font-family: var(--ff-lexend-deca);
+    font-size: 0.8em;
+    letter-spacing: 0.08em;
+}
+
+/* GRID LAYOUT */
+
+.card-container {
+    display: grid;
+}
+
+/* STATS INFO DIV */
+
+.stats-info {
+    display: grid;
+    justify-content: center;
+}
+
+/* FOOTER */
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 1200px) {
+    body {
+        margin: 11.8em auto;
+    }
+
+    .card-container {
+        width: 74em;
+        padding: 0;
+        border-radius: 0.5em;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas: 
+            "company-info image"
+            "stats-info image";
+    }
+
+    /* IMAGE CONTAINER */
+
+    .image-container { 
+        margin-top: 0;
+        border-top-right-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
+        border-top-left-radius: 0; 
+        grid-area: image;
+    }
+
+    .image-mobile {
+        display: none;
+    }
+
+    .image-desktop {
+        display: block;
+    }
+
+    img {
+        height: 100%;
+        border-top-right-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
+        border-top-left-radius: 0;
+    }
+
+    /* COMPANY INFO DIV */
+
+    .company-info {
+        padding: 4.1em;
+        grid-area: company-info;
+    }
+
+    .company-info h1 {
+        font-size: 2.39em;
+        letter-spacing: 0.03em;
+        text-align: left;
+    }
+
+    .company-info p {
+        padding-right: 2.5em;
+        text-align: left;
+    }
+
+    .stats-info {
+        grid-area: stats-info;
+    }
+
+    .counter, .category {
+        text-align: left;
+    }
+
+    .counter {
+        font-size: 1.5em;
+    }
+
+    /* GRID LAYOUT */
+
+    /* STATS INFO DIV */
+
+    .stats-info {
+        padding: 0 4.1em 0 0;
+        grid-auto-flow: column;
+        justify-content: space-evenly;   
+    }
+  
+} 
+
+@media screen and (max-width: 374px) {
+    .card-container {
+        width: 90%;
+    }
+}
+
